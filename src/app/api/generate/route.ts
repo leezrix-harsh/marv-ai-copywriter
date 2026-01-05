@@ -1,11 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { streamText } from "ai";
-import { createOllama } from "ollama-ai-provider-v2";
-
-// Create Ollama provider - connects to local Ollama instance
-const ollama = createOllama({
-  baseURL: "http://localhost:11434/api",
-});
+import { NextRequest } from "next/server";
+import { Ollama } from "ollama";
 
 // System prompt for copywriting - focused on AI Copywriting Generator
 const SYSTEM_PROMPT = `You are Marv, an expert AI copywriter with years of experience in marketing, advertising, and content creation. Your specialty is creating compelling, persuasive, and engaging copy that converts readers into customers.
@@ -22,45 +16,88 @@ Guidelines:
 
 Always provide ready-to-use copy that the user can immediately implement. Format your response cleanly without excessive explanations unless asked.`;
 
+// Create Ollama client lazily to ensure env vars are loaded
+function getOllamaClient() {
+  const apiKey = process.env.OLLAMA_API_KEY;
+  
+  if (!apiKey) {
+    throw new Error("OLLAMA_API_KEY is not configured");
+  }
+  
+  return new Ollama({
+    host: "https://ollama.com",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+    },
+  });
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { prompt } = await request.json();
 
     if (!prompt || typeof prompt !== "string") {
-      return NextResponse.json(
-        { error: "Please provide a valid prompt" },
-        { status: 400 }
+      return new Response(
+        JSON.stringify({ error: "Please provide a valid prompt" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
 
-    // Use AI SDK's streamText for generating copywriting content
-    const result = streamText({
-      model: ollama("gpt-oss:120b-cloud"),
-      system: SYSTEM_PROMPT,
-      prompt: prompt,
+    // Get Ollama client (ensures env vars are loaded)
+    const ollama = getOllamaClient();
+
+    // Create a readable stream for the response
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      async start(controller) {
+        try {
+          const response = await ollama.chat({
+            model: "gpt-oss:120b",
+            messages: [
+              { role: "system", content: SYSTEM_PROMPT },
+              { role: "user", content: prompt },
+            ],
+            stream: true,
+          });
+
+          for await (const part of response) {
+            controller.enqueue(encoder.encode(part.message.content));
+          }
+
+          controller.close();
+        } catch (error) {
+          console.error("Streaming error:", error);
+          const errorMessage =
+            error instanceof Error ? error.message : "An error occurred";
+          controller.enqueue(encoder.encode(`Error: ${errorMessage}`));
+          controller.close();
+        }
+      },
     });
 
-    // Return streaming response
-    return result.toTextStreamResponse();
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+      },
+    });
   } catch (error) {
     console.error("API Error:", error);
 
-    // Check if it's a connection error (Ollama not running)
     const errorMessage =
-      error instanceof Error && error.message.includes("ECONNREFUSED")
-        ? "Cannot connect to Ollama. Make sure Ollama is running (ollama serve)"
-        : error instanceof Error
-        ? error.message
-        : "An unexpected error occurred";
+      error instanceof Error ? error.message : "An unexpected error occurred";
 
-    return NextResponse.json({ error: errorMessage }, { status: 500 });
+    return new Response(JSON.stringify({ error: errorMessage }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }
 
 // Handle unsupported methods
 export async function GET() {
-  return NextResponse.json(
-    { error: "Method not allowed. Use POST." },
-    { status: 405 }
+  return new Response(
+    JSON.stringify({ error: "Method not allowed. Use POST." }),
+    { status: 405, headers: { "Content-Type": "application/json" } }
   );
 }

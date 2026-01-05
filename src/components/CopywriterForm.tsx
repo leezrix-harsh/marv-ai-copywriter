@@ -130,7 +130,8 @@ export default function CopywriterForm({ onSampleClick }: CopywriterFormProps) {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && e.ctrlKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
       handleGenerate();
     }
   };
@@ -167,7 +168,7 @@ export default function CopywriterForm({ onSampleClick }: CopywriterFormProps) {
             disabled={isGenerating}
           />
           <span className={styles.hint}>
-            Tip: Press Ctrl + Enter to generate
+            Tip: Press Enter to generate
           </span>
         </div>
 
