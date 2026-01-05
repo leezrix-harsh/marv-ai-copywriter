@@ -1,0 +1,21 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_N_E"]("app/page",{
+
+/***/ "(app-pages-browser)/./src/components/CopywriterForm.module.css":
+/*!**************************************************!*\
+  !*** ./src/components/CopywriterForm.module.css ***!
+  \**************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval(__webpack_require__.ts("// extracted by mini-css-extract-plugin\nmodule.exports = {\"section\":\"CopywriterForm_section___ACi4\",\"formWrapper\":\"CopywriterForm_formWrapper__qaOzt\",\"inputGroup\":\"CopywriterForm_inputGroup__lIZt0\",\"label\":\"CopywriterForm_label__C3m0d\",\"textarea\":\"CopywriterForm_textarea__X0naT\",\"hint\":\"CopywriterForm_hint__ALsag\",\"generateButton\":\"CopywriterForm_generateButton__HE47s\",\"error\":\"CopywriterForm_error__Esu10\",\"outputWrapper\":\"CopywriterForm_outputWrapper__tAWhh\",\"outputHeader\":\"CopywriterForm_outputHeader__oJ7Wq\",\"outputLabel\":\"CopywriterForm_outputLabel__yMIxM\",\"copyButton\":\"CopywriterForm_copyButton__MpZLX\",\"outputContent\":\"CopywriterForm_outputContent__faa63\"};\n    if(true) {\n      // 1767622609676\n      var cssReload = __webpack_require__(/*! ./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js */ \"(app-pages-browser)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js\")(module.id, {\"publicPath\":\"/_next/\",\"esModule\":false,\"locals\":true});\n      module.hot.dispose(cssReload);\n      \n    }\n  \nmodule.exports.__checksum = \"26c639057336\"\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1wYWdlcy1icm93c2VyKS8uL3NyYy9jb21wb25lbnRzL0NvcHl3cml0ZXJGb3JtLm1vZHVsZS5jc3MiLCJtYXBwaW5ncyI6IkFBQUE7QUFDQSxrQkFBa0I7QUFDbEIsT0FBTyxJQUFVO0FBQ2pCO0FBQ0Esc0JBQXNCLG1CQUFPLENBQUMsd01BQTJKLGNBQWMsc0RBQXNEO0FBQzdQLE1BQU0sVUFBVTtBQUNoQjtBQUNBO0FBQ0E7QUFDQSx5QkFBeUIiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9fTl9FLy4vc3JjL2NvbXBvbmVudHMvQ29weXdyaXRlckZvcm0ubW9kdWxlLmNzcz83ZmIwIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxubW9kdWxlLmV4cG9ydHMgPSB7XCJzZWN0aW9uXCI6XCJDb3B5d3JpdGVyRm9ybV9zZWN0aW9uX19fQUNpNFwiLFwiZm9ybVdyYXBwZXJcIjpcIkNvcHl3cml0ZXJGb3JtX2Zvcm1XcmFwcGVyX19xYU96dFwiLFwiaW5wdXRHcm91cFwiOlwiQ29weXdyaXRlckZvcm1faW5wdXRHcm91cF9fbEladDBcIixcImxhYmVsXCI6XCJDb3B5d3JpdGVyRm9ybV9sYWJlbF9fQzNtMGRcIixcInRleHRhcmVhXCI6XCJDb3B5d3JpdGVyRm9ybV90ZXh0YXJlYV9fWDBuYVRcIixcImhpbnRcIjpcIkNvcHl3cml0ZXJGb3JtX2hpbnRfX0FMc2FnXCIsXCJnZW5lcmF0ZUJ1dHRvblwiOlwiQ29weXdyaXRlckZvcm1fZ2VuZXJhdGVCdXR0b25fX0hFNDdzXCIsXCJlcnJvclwiOlwiQ29weXdyaXRlckZvcm1fZXJyb3JfX0VzdTEwXCIsXCJvdXRwdXRXcmFwcGVyXCI6XCJDb3B5d3JpdGVyRm9ybV9vdXRwdXRXcmFwcGVyX190QVdoaFwiLFwib3V0cHV0SGVhZGVyXCI6XCJDb3B5d3JpdGVyRm9ybV9vdXRwdXRIZWFkZXJfX29KN1dxXCIsXCJvdXRwdXRMYWJlbFwiOlwiQ29weXdyaXRlckZvcm1fb3V0cHV0TGFiZWxfX3lNSXhNXCIsXCJjb3B5QnV0dG9uXCI6XCJDb3B5d3JpdGVyRm9ybV9jb3B5QnV0dG9uX19NcFpMWFwiLFwib3V0cHV0Q29udGVudFwiOlwiQ29weXdyaXRlckZvcm1fb3V0cHV0Q29udGVudF9fZmFhNjNcIn07XG4gICAgaWYobW9kdWxlLmhvdCkge1xuICAgICAgLy8gMTc2NzYyMjYwOTY3NlxuICAgICAgdmFyIGNzc1JlbG9hZCA9IHJlcXVpcmUoXCJDOi9Vc2Vycy9NdWhhbS9Eb2N1bWVudHMvQ29kZXMgKyBQcm9ncmFtbWluZy9BSSBDb3B5d3JpdGluZyBHZW5lcmF0b3Ivbm9kZV9tb2R1bGVzL25leHQvZGlzdC9jb21waWxlZC9taW5pLWNzcy1leHRyYWN0LXBsdWdpbi9obXIvaG90TW9kdWxlUmVwbGFjZW1lbnQuanNcIikobW9kdWxlLmlkLCB7XCJwdWJsaWNQYXRoXCI6XCIvX25leHQvXCIsXCJlc01vZHVsZVwiOmZhbHNlLFwibG9jYWxzXCI6dHJ1ZX0pO1xuICAgICAgbW9kdWxlLmhvdC5kaXNwb3NlKGNzc1JlbG9hZCk7XG4gICAgICBcbiAgICB9XG4gIFxubW9kdWxlLmV4cG9ydHMuX19jaGVja3N1bSA9IFwiMjZjNjM5MDU3MzM2XCJcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(app-pages-browser)/./src/components/CopywriterForm.module.css\n"));
+
+/***/ })
+
+});
